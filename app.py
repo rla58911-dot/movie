@@ -14,7 +14,11 @@ from dotenv import load_dotenv  # .env 파일 로드
 # 1) 환경변수 로드 (.env 파일에서 API 키 읽기)
 # ─────────────────────────────────────────────
 load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+
+GEMINI_API_KEY = st.secrets.get(
+    "GEMINI_API_KEY",
+    os.getenv("GEMINI_API_KEY", "")
+)
 
 # ─────────────────────────────────────────────
 # 2) Gemini AI 설정
